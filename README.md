@@ -31,6 +31,31 @@ ejercicios indicados.
 
 - Analice el script `wav2lp.sh` y explique la misión de los distintos comandos, y sus opciones, involucrados
   en el *pipeline* principal (`sox`, `$X2X`, `$FRAME`, `$WINDOW` y `$LPC`).
+  
+  **` Sox: permite generar una señal del formato adecuado a partir de una señal con otro formato. Por ejemplo, permite conviertir la señal de entrada a reales en coma flotante de 32 bits sin cabecera. `**
+  
+  **` x2x: programa de SPTK que permite la conversión entre distintos formatos de datos.`**
+  
+  **` img/x2x.png `**
+  
+  **` Frame: permite dividir la señal de entrada en tramas de 200 muestras (25ms) con despalzamiento de la ventana de 40 muestras (5ms) (fm = 8kHz) utilizando las siguientes medidas en este caso: (sptk frame -l 200 -p 40) `**
+ 
+  **` img/frame.png `**
+  
+  **` Window: cada trama es multiplicada por la ventana de Blackman (la duración es de 200 muestras). (sptk window -l 200) `**
+  
+  **` img/window.png `**
+  
+  **` LPC_order: calcula los primeros coeficientes de predicción lineal. `**
+  
+  **` img/LPC.png`**
+
+
+  
+  
+  
+  
+  
 
 - Explique el procedimiento seguido para obtener un fichero de formato *fmatrix* a partir de los ficheros
   de salida de SPTK (líneas 41 a 47 del script `wav2lp.sh`).
