@@ -36,19 +36,19 @@ ejercicios indicados.
   
   **` x2x: programa de SPTK que permite la conversión entre distintos formatos de datos.`**
   
-  **` img/x2x.png `**
+  < img/x2x.png >
   
   **` Frame: permite dividir la señal de entrada en tramas de 200 muestras (25ms) con despalzamiento de la ventana de 40 muestras (5ms) (fm = 8kHz) utilizando las siguientes medidas en este caso: (sptk frame -l 200 -p 40) `**
  
-  **` img/frame.png `**
+  < img/frame.png >
   
   **` Window: cada trama es multiplicada por la ventana de Blackman (la duración es de 200 muestras). (sptk window -l 200) `**
   
-  **` img/window.png `**
+  < img/window.png >
   
   **` LPC_order: calcula los primeros coeficientes de predicción lineal. `**
   
-  **` img/LPC.png`**
+  < img/LPC.png >
 
 
   
