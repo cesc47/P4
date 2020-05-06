@@ -59,6 +59,11 @@ ejercicios indicados.
 
 - Explique el procedimiento seguido para obtener un fichero de formato *fmatrix* a partir de los ficheros
   de salida de SPTK (líneas 41 a 47 del script `wav2lp.sh`).
+  
+  **`En las líneas 41 a 43, que podemos ver en la siguiente imagen, el procedimiento a seguir es, primero mediante el comando sox pasar la señal .wav a unsigned int sin ninguna cabexera o fermato adicional. Después, mediante el comando X2X hacemos la conversión de datos de short a float. El siguiente paso es dividir la señal de entrada en tramas de 240 muestras (30 ms) con un desplazamiento de la ventana de 80 muestras (10 ms) con el comando frame de la libreria. Después aplicamos la ventana de Blackman con 240 muestras tanto de entrada como de salida. Y por último, calcula los 'lpc_order' primeros coeficientes de predicción lineal pasados por el parametro -m y donde el -l es el tamaño del frame. Para acabar redireccionamos la salida un fichero llamado $base.lp`**
+  
+<img src="img/linia41a43Wav2lp.png.png.png" width="640" align="center">
+  
 
   * ¿Por qué es conveniente usar este formato (u otro parecido)?
 
