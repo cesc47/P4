@@ -34,6 +34,9 @@ ejercicios indicados.
   
   **` Sox: permite generar una señal del formato adecuado a partir de una señal con otro formato. Por ejemplo, permite conviertir la señal de entrada a reales en coma flotante de 32 bits sin cabecera. `**
   
+    <img src="sox/x2x.png" width="640" align="center">
+
+  
   **` x2x: programa de SPTK que permite la conversión entre distintos formatos de datos.`**
   
   <img src="img/x2x.png" width="640" align="center">
