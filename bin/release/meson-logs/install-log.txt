@@ -1,5 +1,6 @@
 # List of files installed by Meson
 # Does not contain files installed by custom scripts.
+<<<<<<< HEAD
 /home/david/PAV/lib/libpav.a
 /home/david/PAV/bin/gmm_classify
 /home/david/PAV/bin/gmm_show
@@ -8,3 +9,13 @@
 /home/david/PAV/bin/pearson
 /home/david/PAV/bin/fmatrix_cut
 /home/david/PAV/bin/fmatrix_show
+=======
+/Users/Francesc/PAV/lib/libpav.a
+/Users/Francesc/PAV/bin/gmm_classify
+/Users/Francesc/PAV/bin/gmm_show
+/Users/Francesc/PAV/bin/gmm_train
+/Users/Francesc/PAV/bin/gmm_verify
+/Users/Francesc/PAV/bin/pearson
+/Users/Francesc/PAV/bin/fmatrix_cut
+/Users/Francesc/PAV/bin/fmatrix_show
+>>>>>>> d7820392c36d41be04d347dce458f5b6537007ef
