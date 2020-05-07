@@ -146,13 +146,13 @@ ejercicios indicados.
   parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
 
 <img src="img/pearsonlp.png" width="640" align="center">
-<img src="img/ro2_3.png" width="640" align="center">
+<img src="img/ro2_3.png" width="400" align="center">
 
 <img src="img/pearsonlpcc.png" width="640" align="center">
-<img src="img/ro2_3_lpcc.png" width="640" align="center">
+<img src="img/ro2_3_lpcc.png" width="400" align="center">
 
-<img src="img/pearsonmfcc.png" width="640" align="center">
-<img src="img/ro2_3_mfcc.png" width="640" align="center">
+<img src="img/perasonmfcc.png" width="640" align="center">
+<img src="img/ro2_3_mfcc.png" width="400" align="center">
   
 
   |                        |    LP   |  LPCC  |   MFCC  |
