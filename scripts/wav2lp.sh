@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## \file
-## \TODO This file implements a very trivial feature extraction; use it as a template for other front ends.
+## \HECHO This file implements a very trivial feature extraction; use it as a template for other front ends.
 ## 
 ## Please, read SPTK documentation and some papers in order to implement more advanced front ends.
 
@@ -23,7 +23,7 @@ lpc_order=$1
 inputfile=$2
 outputfile=$3
 
-UBUNTU_SPTK=1
+UBUNTU_SPTK=0
 if [[ $UBUNTU_SPTK == 1 ]]; then
    # In case you install SPTK using debian package (apt-get)
    X2X="sptk x2x"

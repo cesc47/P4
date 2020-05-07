@@ -50,8 +50,13 @@ int main(int argc, const char *argv[]) {
 
   GMM gmm;
 
-  /// \TODO Initialize GMM from data; initially, you should implement random initialization.
-  /// 
+  /// \HECHO Initialize GMM from data; initially, you should implement random initialization.
+  //Random inicialization
+
+  if(gmm.random_init(data, nmix) != 0){
+    return -1;
+  }
+
   /// Other alternatives are: vq, em_split... See the options of the program and place each
   /// initicialization accordingly.
   switch (init_method) {
@@ -65,8 +70,10 @@ int main(int argc, const char *argv[]) {
     ;
   }
 
-  /// \TODO Apply EM to estimate GMM parameters (complete the funcion in gmm.cpp)
-
+  /// \HECHO Apply EM to estimate GMM parameters (complete the funcion in gmm.cpp)
+  if(gmm.em(data, DEF_ITERATIONS, DEF_THR, 01) != 0){
+    return -1;
+  }
 
   //Create directory, if it is needed
   gmm_filename.checkDir();

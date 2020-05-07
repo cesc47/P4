@@ -6,7 +6,7 @@
 # Antonio Bonafonte, Nov. 2015
 
 ## @file
-# \TODO
+# \HECHO
 # Set the proper value to variables: lists, w, name_exp and db
 # - lists:    directory with the list of signal files
 # - w:        a working directory for temporary files
@@ -81,7 +81,7 @@ fi
 # ----------------------------
 
 ## @file
-# \TODO
+# \HECHO
 # Create your own features with the name compute_$FEAT(), where  $FEAT the name of the feature.
 # - Select (or change) different features, options, etc. Make you best choice and try several options.
 
@@ -104,15 +104,15 @@ compute_lpcc() {
 compute_mfcc() {
     for filename in $(cat $lists/class/all.train $lists/class/all.test); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
-        EXEC="wav2mfcc 8 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        EXEC="wav2mfcc 13 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
         echo $EXEC && $EXEC || exit 1
     done
 }
 
 #  Set the name of the feature (not needed for feature extraction itself)
-if [[ ! -v FEAT && $# > 0 && "$(type -t compute_$1)" = function ]]; then
+if [[ ! -n "$FEAT" && $# > 0 && "$(type -t compute_$1)" = function ]]; then
 	FEAT=$1
-elif [[ ! -v FEAT ]]; then
+elif [[ ! -n "$FEAT" ]]; then
 	echo "Variable FEAT not set. Please rerun with FEAT set to the desired feature."
 	echo
 	echo "For instance:"

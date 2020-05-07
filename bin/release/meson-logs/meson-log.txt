@@ -1,22 +1,4 @@
-<<<<<<< HEAD
-Build started at 2020-05-06T18:23:43.336543
-Main binary: /usr/bin/python3
-Python system: Linux
-The Meson build system
-Version: 0.45.1
-Source dir: /home/david/Escritorio/PAV/P4
-Build dir: /home/david/Escritorio/PAV/P4/bin/release
-Build type: native build
-Project name: Práctica 4 de PAV - reconocimiento y verificación del locutor
-Native C++ compiler: c++ (gcc 7.5.0 "c++ (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0")
-Build machine cpu family: x86_64
-Build machine cpu: x86_64
-Program doxygen found: YES (/usr/bin/doxygen)
-Configuring Doxyfile using configuration
-Build targets in project: 19
-Found ninja-1.8.2 at /usr/bin/ninja
-=======
-Build started at 2020-05-06T15:22:22.367209
+Build started at 2020-05-06T20:03:38.929262
 Main binary: /usr/local/opt/python/bin/python3.7
 Build Options: -Dprefix=/Users/Francesc/PAV -Dlibdir=lib -Dbuildtype=release
 Python system: Darwin
@@ -65,12 +47,12 @@ Target machine cpu family: x86_64
 Target machine cpu: x86_64
 Program doxygen found: YES (/usr/local/bin/doxygen)
 Configuring Doxyfile using configuration
-Build targets in project: 17
+Build targets in project: 19
 
 Found ninja-1.10.0 at /usr/local/bin/ninja
 Running compile:
-Working directory:  /var/folders/ph/xrxrz0997wv4bh4pm87k0y200000gn/T/tmpavn31hvx
-Command line:  c++ /var/folders/ph/xrxrz0997wv4bh4pm87k0y200000gn/T/tmpavn31hvx/testfile.cpp -o /var/folders/ph/xrxrz0997wv4bh4pm87k0y200000gn/T/tmpavn31hvx/output.obj -pipe -c -std=c++11 
+Working directory:  /var/folders/ph/xrxrz0997wv4bh4pm87k0y200000gn/T/tmpqt5p970l
+Command line:  c++ /var/folders/ph/xrxrz0997wv4bh4pm87k0y200000gn/T/tmpqt5p970l/testfile.cpp -o /var/folders/ph/xrxrz0997wv4bh4pm87k0y200000gn/T/tmpqt5p970l/output.obj -pipe -c -std=c++11 
 
 Code:
  int i = static_cast<int>(0);
@@ -80,8 +62,8 @@ Compiler stderr:
  
 Compiler accepts -std=c++11: YES
 Running compile:
-Working directory:  /Users/Francesc/PAV/P4/bin/release/meson-private/tmpcnx1d4zv
-Command line:  c++ /Users/Francesc/PAV/P4/bin/release/meson-private/tmpcnx1d4zv/testfile.cpp -o /Users/Francesc/PAV/P4/bin/release/meson-private/tmpcnx1d4zv/output.obj -pipe -c -O0 -fpermissive --print-search-dirs 
+Working directory:  /Users/Francesc/PAV/P4/bin/release/meson-private/tmppbjmir_6
+Command line:  c++ /Users/Francesc/PAV/P4/bin/release/meson-private/tmppbjmir_6/testfile.cpp -o /Users/Francesc/PAV/P4/bin/release/meson-private/tmppbjmir_6/output.obj -pipe -c -O0 -fpermissive --print-search-dirs 
 
 Code:
  
@@ -91,4 +73,3 @@ libraries: =/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0
 
 Compiler stderr:
  
->>>>>>> d7820392c36d41be04d347dce458f5b6537007ef
