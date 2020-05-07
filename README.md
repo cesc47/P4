@@ -145,6 +145,16 @@ ejercicios indicados.
 - Usando el programa <code>pearson</code>, obtenga los coeficientes de correlación normalizada entre los
   parámetros 2 y 3, y rellene la tabla siguiente con los valores obtenidos.
 
+<img src="img/pearsonlp.png" width="640" align="center">
+<img src="img/ro2_3.png" width="640" align="center">
+
+<img src="img/pearsonlpcc.png" width="640" align="center">
+<img src="img/ro2_3_lpcc.png" width="640" align="center">
+
+<img src="img/pearsonmfcc.png" width="640" align="center">
+<img src="img/ro2_3_mfcc.png" width="640" align="center">
+  
+
   |                        |    LP   |  LPCC  |   MFCC  |
   |------------------------|:-------:|:------:|:-------:|
   | &rho;<sub>x</sub>[2,3] |-0.872284|0.116522|0.0277646|
