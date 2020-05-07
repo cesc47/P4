@@ -85,7 +85,7 @@ ejercicios indicados.
   
   <img src="img/pipelinelpcc.png" width="640" align="center">
   
-  **`Teniendo en cuenta que paamos los sigueintes datos como parametros:`**
+  **`Teniendo en cuenta que pasamos los sigueintes datos como parametros:`**
   
   <img src="img/parametroslpcc.png" width="640" align="center">
 
@@ -97,6 +97,12 @@ ejercicios indicados.
   <img src="img/mfcc.png" width="640" align="center">
   
   **`La pipeline principal es:`**
+  
+  <img src="img/pipelinemfcc.png" width="640" align="center">
+  
+  **`Teniendo en cuenta que pasamos los sigueintes datos como parametros:`**
+  
+  <img src="img/parametrosmfcc.png" width="640" align="center">
 
 
 ### Extracción de características.
