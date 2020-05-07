@@ -72,6 +72,9 @@ ejercicios indicados.
 <img src="img/linia45a47wav2lp.png" width="640" align="center">
 
   * ¿Por qué es conveniente usar este formato (u otro parecido)?
+  
+  **` La matriz se usa para poder identificar correctamente los coeficientes por trama. Usamos el fichero ffmatrix, que representa el número de filas y columnas seguidas de los datos, donde calcularemos el número de filas y columnas mediante algunas operaciones que se explican en el manual de la práctica (para las columnas es simplemente el número de coeficientes + 1, pero para las filas es un poco más complicado).  `**
+  * ¿Por qué es conveniente usar este formato (u otro parecido)?
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales de predicción lineal
   (LPCC) en su fichero <code>scripts/wav2lpcc.sh</code>:
@@ -85,9 +88,15 @@ ejercicios indicados.
   
   <img src="img/pipelinelpcc.png" width="640" align="center">
   
+  **`Donde representa que en el apartado de LPCC el -l es 'frame length del input', y -m es el orden del LPCC.`**
+
   **`Teniendo en cuenta que pasamos los sigueintes datos como parametros:`**
   
   <img src="img/parametroslpcc.png" width="640" align="center">
+  
+  **`Y añadimos la función en run_spkid:`**
+
+  <img src="img/computelpcc.png" width="640" align="center">
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC) en
   su fichero <code>scripts/wav2mfcc.sh</code>:
@@ -100,9 +109,15 @@ ejercicios indicados.
   
   <img src="img/pipelinemfcc.png" width="640" align="center">
   
+  **`Donde representa que en el apartado de MFCC el -l es 'frame length del input', y -m es el orden del MFCC.`**
+
   **`Teniendo en cuenta que pasamos los sigueintes datos como parametros:`**
   
   <img src="img/parametrosmfcc.png" width="640" align="center">
+  
+  **`Y añadimos la función en run_spkid:`**
+
+  <img src="img/computemfcc.png" width="640" align="center">
 
 
 ### Extracción de características.
