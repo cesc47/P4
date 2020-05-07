@@ -112,15 +112,15 @@ ejercicios indicados.
 
   **`LP:`**
 
-    <img src="img/lp12.png" width="640" align="center">
+    <img src="img/LP12.png" width="640" align="center">
 
   **`LPCC:`**
 
-    <img src="img/lpcc12.png" width="640" align="center">
+    <img src="img/LPCC12.png" width="640" align="center">
 
   **`MFCC:`**
 
-    <img src="img/mfcc12.png" width="640" align="center">
+    <img src="img/MFCC12.png" width="640" align="center">
 
   + ¿Cuál de ellas le parece que contiene más información?
   
@@ -144,7 +144,7 @@ ejercicios indicados.
 
     **`Para el caso del MFCC: En procesado de señal, el MFC (Mel Frequency Cepstrum) es la representación del término corto del espectro de potencia de un sonido, basado en una DCT (discrete cosine transform - linear) de una potencia espectral logarítmica de una escala de frecuencia no lineal. Se usan los primeros Q = 13 coeficientes.`**
     
-    <img src="img/calculomfcc.png" width="640" align="center">
+    <img src="img/calculo_MFCC.png" width="640" align="center">
 
     **`Observación: Los MFCC dan una información mejor que la FFT de la trama ya que proporcionan información de la envolvente espectral, descartando la información relativa al pitch que no se usa en reconocimiento, están correlados con el oído por tener un log en su cálculo, y es un número pequeño. Veremos, más adelante que para mejorar las prestaciones del reconocedor, una opción es añadir su derivada y su segunda derivada.`**
     
