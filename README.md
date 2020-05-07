@@ -82,7 +82,12 @@ ejercicios indicados.
   <img src="img/lpcc2.png" width="640" align="center">
   
   **`La pipeline principal es:`**
-
+  
+  <img src="img/pipelinelpcc.png" width="640" align="center">
+  
+  **`Teniendo en cuenta que paamos los sigueintes datos como parametros:`**
+  
+  <img src="img/parametroslpcc.png" width="640" align="center">
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales en escala Mel (MFCC) en
   su fichero <code>scripts/wav2mfcc.sh</code>:
