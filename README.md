@@ -140,7 +140,7 @@ ejercicios indicados.
 
   **`Sabemos que el objetivo es representar la señal de voz con el mismo número de parámetros posibles, sin perder información relevante. Puede ser que las formas de onda no se parezcan para nada a pesar que pronunciemos la misma letra. Esto es debido a que hay variabilidad. Mejor tendré entonces que comparar con las envolventes espectrales (caso LPCC). `**
   
-    **`Si hago el LPC vamos a 1kHz por formante + 2 de propina (aproximadamente). Por lo tanto, el LPCC tendrá (3/2)p. Para nuestro caso, teníamos que P = 8, por lo tanto, será de 12 coeficientes. El cepstrum es una representación eficiente de la señal del habla. Parece tener una buena representación de la envolvente espectral con muy pocas muestras.`**
+    **`Si hacemos el LPC vamos a 1kHz por formante + 2 de propina (aproximadamente). Por lo tanto, el LPCC tendrá (3/2)p. Para nuestro caso, teníamos que P = 8, por lo tanto, será de 12 coeficientes. El cepstrum es una representación eficiente de la señal del habla. Parece tener una buena representación de la envolvente espectral con muy pocas muestras.`**
 
     **`Para el caso del MFCC: En procesado de señal, el MFC (Mel Frequency Cepstrum) es la representación del término corto del espectro de potencia de un sonido, basado en una DCT (discrete cosine transform - linear) de una potencia espectral logarítmica de una escala de frecuencia no lineal. Se usan los primeros Q = 13 coeficientes.`**
     
