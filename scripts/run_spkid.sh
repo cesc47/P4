@@ -132,13 +132,12 @@ for cmd in $*; do
 
    if [[ $cmd == train ]]; then
        ## @file
-	   # \TODO
+	   # \HECHO
 	   # Select (or change) good parameters for gmm_train
        for dir in $db/BLOCK*/SES* ; do
            name=${dir/*\/}
            echo $name ----
-           gmm_train  -v 1 -T 0.001 -N5 -m 4 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1
-           echo
+           gmm_train  -v 1 -T 0.0001 -N 50 -m 30 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1           echo
        done
    elif [[ $cmd == test ]]; then
        (gmm_classify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list  $lists/class/all.test | tee $w/class_${FEAT}_${name_exp}.log) || exit 1
@@ -156,21 +155,27 @@ for cmd in $*; do
                  END {printf "nerr=%d\tntot=%d\terror_rate=%.2f%%\n", ($err, $ok+$err, 100*$err/($ok+$err))}' $w/class_${FEAT}_${name_exp}.log | tee -a $w/class_${FEAT}_${name_exp}.log
    elif [[ $cmd == trainworld ]]; then
        ## @file
-	   # \TODO
+	   # \HECHO
 	   # Implement 'trainworld' in order to get a Universal Background Model for speaker verification
-	   #
+       gmm_train -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/users.gmm $lists/verif/users.train
 	   # - The name of the world model will be used by gmm_verify in the 'verify' command below.
        echo "Implement the trainworld option ..."
    elif [[ $cmd == verify ]]; then
        ## @file
-	   # \TODO 
+	   # \HECHO 
 	   # Implement 'verify' in order to perform speaker verification
-	   #
 	   # - The standard output of gmm_verify must be redirected to file $w/verif_${FEAT}_${name_exp}.log.
 	   #   For instance:
 	   #   * <code> gmm_verify ... > $w/verif_${FEAT}_${name_exp}.log </code>
 	   #   * <code> gmm_verify ... | tee $w/verif_${FEAT}_${name_exp}.log </code>
-       echo "Implement the verify option ..."
+       
+       #gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates > $w/verif_${FEAT}_${name_exp}.log  
+       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates > $w/verif_${FEAT}_${name_exp}.log  | perl $w/verif_${FEAT}_${name_exp}.log scripts/spk_verif_score.pl 
+       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates > $w/verif_${FEAT}_${name_exp}.log  | tee perl $w/verif_${FEAT}_${name_exp}.log scripts/spk_verif_score.pl 
+
+       #| perl -ane 'print "$F[0]\t$F[1]\t"; if ($F[2] > -3.214) {print "1\n} else {print "0\n"}' verification.log > verif_test.log
+       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log || exit 1
+    
 
    elif [[ $cmd == verif_err ]]; then
        if [[ ! -s $w/verif_${FEAT}_${name_exp}.log ]] ; then
