@@ -216,8 +216,12 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
   SPEECON usando su mejor sistema de reconocimiento para los parámetros LP, LPCC y MFCC.
   
  **`Para el LP`:**
+
+  <img src="img/lp_classerr.png" width="640" align="center">
  
  **`Para el LPCC`:**
+ 
+  <img src="img/lpcc_classerr.png" width="640" align="center">
 
  **`Para el MFCC`:**
 
