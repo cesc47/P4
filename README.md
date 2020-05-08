@@ -182,8 +182,26 @@ Complete el código necesario para entrenar modelos GMM.
 - Inserte una gráfica que muestre la función de densidad de probabilidad modelada por el GMM de un locutor
   para sus dos primeros coeficientes de MFCC.
   
+  **`Aquí podemos ver el código modificado para calcular el logaritmo de la probabilidad de las GMM's:`**
+  
+  <img src="img/logprob.png" width="640" align="center">
+  
+  **`Aquí podemos ver el código del algoritmo expectation - maximization:`**
+  
+  <img src="img/em.png" width="640" align="center">
+
+  **`Aquí podemos ver el código de las incializaciones:`**
+  
+  <img src="img/init.png" width="640" align="center">
+
+  **`Respecto al dibujo que veremos a continuación, lo hemos hecho con 4 GMM’s, hemos modificado las características en la línea 140 de run_spikd.sh para generar modelos con 4 gausianas. Aquí podemos ver el código y luego dibujo :`**
+  
+<img src="img/run.png" width="640" align="center">
+
 <img src="img/graficamfcc009.png" width="640" align="center">
 
+  **`Aquí podemos ver como se visualiza si ponemos la población:`**
+  
 <img src="img/graficamfcc009poblacion.png" width="640" align="center">
 
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos (la gŕafica
