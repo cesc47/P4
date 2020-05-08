@@ -209,6 +209,10 @@ Complete el código necesario para entrenar modelos GMM.
   del modelado GMM para diferenciar las señales de uno y otro.
   
   <img src="img/graficaG009L009.png" width="640" align="center">
+  
+**`En la gráfica anterior podemos ver las regiones con el 90 % y 50 % de la masa de probabilidad para los
+GMM de los locutores SES009 (en rojo, en la parte superior) y SES010 (en azul, en la parte inferior); también se muestra la
+población del usuario SES009 (en rojo, en la parte izquierda) y SES010 (en azul, en la parte derecha). Además, podemos observar como en la gràficas en las que la GMM coincide con el locutor, las regiones de la masa de probabilidad están situadas en las zonas con más densidad de población. Mientras que, cuando no coinciden, podemos ver como no hay coincidencia entre las regiones y las poblaciones. Esto es útil para calcular un percentaje de impostor o usuario legítimo y a partir de ello decidir que acciones tomar.  `**
 
 
 ### Reconocimiento del locutor.
