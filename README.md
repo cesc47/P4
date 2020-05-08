@@ -74,7 +74,6 @@ ejercicios indicados.
   * ¿Por qué es conveniente usar este formato (u otro parecido)?
   
   **` La matriz se usa para poder identificar correctamente los coeficientes por trama. Usamos el fichero ffmatrix, que representa el número de filas y columnas seguidas de los datos, donde calcularemos el número de filas y columnas mediante algunas operaciones que se explican en el manual de la práctica (para las columnas es simplemente el número de coeficientes + 1, pero para las filas es un poco más complicado).  `**
-  * ¿Por qué es conveniente usar este formato (u otro parecido)?
 
 - Escriba el *pipeline* principal usado para calcular los coeficientes cepstrales de predicción lineal
   (LPCC) en su fichero <code>scripts/wav2lpcc.sh</code>:
