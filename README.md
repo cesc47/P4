@@ -207,6 +207,9 @@ Complete el código necesario para entrenar modelos GMM.
 - Inserte una gráfica que permita comparar los modelos y poblaciones de dos locutores distintos (la gŕafica
   de la página 20 del enunciado puede servirle de referencia del resultado deseado). Analice la capacidad
   del modelado GMM para diferenciar las señales de uno y otro.
+  
+  <img src="img/graficaG009L009.png" width="640" align="center">
+
 
 ### Reconocimiento del locutor.
 
