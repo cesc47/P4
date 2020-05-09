@@ -125,4 +125,4 @@ print "==> CostDetection: ", sprintf("%.1f\n", 100*$cost);
 print "==============================================\n";
 
 exit 0;
-nerr=1000	ntot=1250	error_rate=80.00%
+#nerr=1000	ntot=1250	error_rate=80.00%

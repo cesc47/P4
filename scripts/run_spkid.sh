@@ -104,7 +104,7 @@ compute_lpcc() {
 compute_mfcc() {
     for filename in $(cat $lists/class/all.train $lists/class/all.test); do
         mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
-        EXEC="wav2mfcc 13 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        EXEC="wav2mfcc 16 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
         echo $EXEC && $EXEC || exit 1
     done
 }
@@ -137,7 +137,7 @@ for cmd in $*; do
        for dir in $db/BLOCK*/SES* ; do
            name=${dir/*\/}
            echo $name ----
-           gmm_train  -v 1 -T 0.0001 -N 50 -m 30 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1           echo
+           gmm_train  -v 1 -T 0.0001 -N 50 -m 50 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/$name.gmm $lists/class/$name.train || exit 1           echo
        done
    elif [[ $cmd == test ]]; then
        (gmm_classify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list  $lists/class/all.test | tee $w/class_${FEAT}_${name_exp}.log) || exit 1
@@ -157,9 +157,10 @@ for cmd in $*; do
        ## @file
 	   # \HECHO
 	   # Implement 'trainworld' in order to get a Universal Background Model for speaker verification
-       gmm_train -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/users.gmm $lists/verif/users.train
+
+        gmm_train -v 1 -T 0.0001 -N5 -m 80 -d $w/$FEAT -e $FEAT -g $w/gmm/$FEAT/users.gmm $lists/verif/others.train  || exit 1
 	   # - The name of the world model will be used by gmm_verify in the 'verify' command below.
-       echo "Implement the trainworld option ..."
+       echo "*********Finished Trainworld*********"
    elif [[ $cmd == verify ]]; then
        ## @file
 	   # \HECHO 
@@ -170,12 +171,10 @@ for cmd in $*; do
 	   #   * <code> gmm_verify ... | tee $w/verif_${FEAT}_${name_exp}.log </code>
        
        #gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates > $w/verif_${FEAT}_${name_exp}.log  
-       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates > $w/verif_${FEAT}_${name_exp}.log  | perl $w/verif_${FEAT}_${name_exp}.log scripts/spk_verif_score.pl 
-       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates > $w/verif_${FEAT}_${name_exp}.log  | tee perl $w/verif_${FEAT}_${name_exp}.log scripts/spk_verif_score.pl 
-
-       #| perl -ane 'print "$F[0]\t$F[1]\t"; if ($F[2] > -3.214) {print "1\n} else {print "0\n"}' verification.log > verif_test.log
-       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log || exit 1
+       #gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log || exit 1
     
+        gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates > $w/verif_${FEAT}_${name_exp}.log  
+        gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log || exit 1
 
    elif [[ $cmd == verif_err ]]; then
        if [[ ! -s $w/verif_${FEAT}_${name_exp}.log ]] ; then
@@ -184,8 +183,8 @@ for cmd in $*; do
        fi
        # You can pass the threshold to spk_verif_score.pl or it computes the
        # best one for these particular results.
-       spk_verif_score.pl $w/verif_${FEAT}_${name_exp}.log | tee $w/verif_${FEAT}_${name_exp}.res
-
+       #scripts/spk_verif_score.pl 11 $w/verif_${FEAT}_${name_exp}.log | tee $w/verif_${FEAT}_${name_exp}.res
+       scripts/spk_verif_score.pl $w/verif_${FEAT}_${name_exp}.log | tee $w/verif_${FEAT}_${name_exp}.res
    elif [[ $cmd == finalclass ]]; then
        ## @file
 	   # \TODO

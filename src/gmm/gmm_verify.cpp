@@ -30,6 +30,7 @@ float verify(const GMM &gmm_candidate, const fmatrix &dat) {
     lprobcand is an informative values to be printed as debug information.
     The decision is based on the returned value
    */
+
   return gmm_candidate.logprob(dat);
 }
 
