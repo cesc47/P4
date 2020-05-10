@@ -131,6 +131,10 @@ int main(int argc, const char *argv[]) {
       float score, probCandidate, probWorld;
       const GMM &gmm_world = igmm_world->second;
       score = verify(gmm_candidate, gmm_world, dat, probCandidate, probWorld);
+      /*int verify_speaker = 0;
+      if (score > THRESHOLD)  verify_speaker = 1;
+      cout << input_filenames[i] << '\t' << candidates[i] << '\t' << score 
+       << '\t' << probCandidate <<'\t' << probWorld <<'\t'  << verify_speaker << endl;*/
       cout << input_filenames[i] << '\t' << candidates[i] << '\t' << score 
 	   << '\t' << probCandidate <<'\t' << probWorld << endl; 
     }

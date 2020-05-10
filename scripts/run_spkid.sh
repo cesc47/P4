@@ -14,8 +14,10 @@
 # - db:       directory of the speecon database 
 lists=lists
 w=work
-name_exp=one
-db=spk_8mu/speecon
+name_exp=two
+db=spk_8mu/sr_test
+#name_exp=one
+#db=spk_8mu/speecon
 
 # ------------------------
 # Usage
@@ -102,12 +104,19 @@ compute_lpcc() {
 }
 
 compute_mfcc() {
-    for filename in $(cat $lists/class/all.train $lists/class/all.test); do
-    mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
-    EXEC="wav2mfcc 16 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
-    echo $EXEC && $EXEC || exit 1
+    for filename in $(cat $lists/final/class.test); do
+        mkdir -p dirname $w/$FEAT/$filename.$FEAT
+        EXEC="wav2mfcc 16 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+        echo $EXEC && $EXEC || exit 1
     done
 }
+#compute_mfcc() {
+#    for filename in $(cat $lists/class/all.train $lists/class/all.test); do
+#    mkdir -p `dirname $w/$FEAT/$filename.$FEAT`
+#    EXEC="wav2mfcc 16 $db/$filename.wav $w/$FEAT/$filename.$FEAT"
+#    echo $EXEC && $EXEC || exit 1
+#    done
+#}
 
 #  Set the name of the feature (not needed for feature extraction itself)
 if [[ ! -n "$FEAT" && $# > 0 && "$(type -t compute_$1)" = function ]]; then
@@ -170,9 +179,6 @@ for cmd in $*; do
 	   #   For instance:
 	   #   * <code> gmm_verify ... > $w/verif_${FEAT}_${name_exp}.log </code>
 	   #   * <code> gmm_verify ... | tee $w/verif_${FEAT}_${name_exp}.log </code>
-       
-       #gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates > $w/verif_${FEAT}_${name_exp}.log  
-       #gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log || exit 1
     
         gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates > $w/verif_${FEAT}_${name_exp}.log  
         gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users $lists/gmm.list $lists/verif/all.test $lists/verif/all.test.candidates | tee $w/verif_${FEAT}_${name_exp}.log || exit 1
@@ -192,7 +198,9 @@ for cmd in $*; do
 	   # Perform the final test on the speaker classification of the files in spk_ima/sr_test/spk_cls.
 	   # The list of users is the same as for the classification task. The list of files to be
 	   # recognized is lists/final/class.test
-       echo "To be implemented ..."
+
+       (gmm_classify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm $lists/gmm.list  $lists/final/class.test | tee $w/class${FEAT}_${name_exp}.log) || exit 1       
+       echo "************Finalclass done************"
    
    elif [[ $cmd == finalverif ]]; then
        ## @file
@@ -201,6 +209,7 @@ for cmd in $*; do
 	   # The list of legitimate users is lists/final/verif.users, the list of files to be verified
 	   # is lists/final/verif.test, and the list of users claimed by the test files is
 	   # lists/final/verif.test.candidates
+       gmm_verify -d $w/$FEAT -e $FEAT -D $w/gmm/$FEAT -E gmm -w users   $lists/final/verif.users  $lists/final/verif.test    $lists/final/verif.test.candidates > $w/verif${FEAT}_${name_exp}.log   exit 1
        echo "To be implemented ..."
    
    # If the command is not recognize, check if it is the name
