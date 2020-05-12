@@ -231,7 +231,7 @@ Complete el código necesario para realizar reconociminto del locutor y optimice
 
  **`Para el MFCC`:**
 
-  <img src="img/Captura de Pantalla 2020-05-08 a les 13.14.05.png" width="640" align="center">
+  <img src="img/Captura de Pantalla 2020-05-09 a les 18.49.41.png" width="640" align="center">
 
 
 ### Verificación del locutor.
